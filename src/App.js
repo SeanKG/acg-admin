@@ -4,6 +4,7 @@ import SideBar from './sidebar/Sidebar';
 import './App.css';
 import styled from 'styled-components';
 import Header from './header/Header';
+import { observer } from 'mobx-react';
 
 import markers from './Markers';
 
@@ -14,14 +15,18 @@ const Wrapper = styled.div`
   height: calc(100vh - ${headerHeight});
 `;
 
-function App() {
-  return (<>
-    <Header height={headerHeight}></Header>
-    <Wrapper>
-      <SideBar markers={markers}></SideBar>
-      <Map markers={markers}/>
-    </Wrapper>
-  </>);
+
+class App extends Component() {
+
+  render(){
+    return (<>
+      <Header height={headerHeight}></Header>
+      <Wrapper>
+        <SideBar markers={markers}></SideBar>
+        <Map markers={markers}/>
+      </Wrapper>
+    </>);
+  }
 }
 
 export default App;
