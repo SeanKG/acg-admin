@@ -20,4 +20,3 @@ class Marker extends Component {
 }
 
 export default Marker;
-
