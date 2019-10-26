@@ -4,12 +4,14 @@ import * as config from '../config.json';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
+const ottawa = {
+    lat: 45.4215,
+    lng: -75.6972
+}
+
 class SimpleMap extends Component {
   static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
+    center: ottawa,
     zoom: 11
   };
 
@@ -23,8 +25,7 @@ class SimpleMap extends Component {
           defaultZoom={this.props.zoom}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
+            {...ottawa}
             text="My Marker"
           />
         </GoogleMapReact>
