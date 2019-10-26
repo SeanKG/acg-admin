@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Map from './map/Map';
 import SideBar from './sidebar/Sidebar';
 import './App.css';
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 
-class App extends Component() {
+class App extends Component {
 
   render(){
     return (<>
