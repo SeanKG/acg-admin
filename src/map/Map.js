@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import * as config from '../config.json';
+import styled from 'styled-components';
+
+const MapWrapper = styled.div`
+    height: 100vh;
+    width: 100%;
+`;
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -18,7 +24,7 @@ class SimpleMap extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
+      <MapWrapper>
         <GoogleMapReact
           bootstrapURLKeys={{ key: config.mapsKey }}
           defaultCenter={this.props.center}
@@ -29,7 +35,7 @@ class SimpleMap extends Component {
             text="My Marker"
           />
         </GoogleMapReact>
-      </div>
+      </MapWrapper>
     );
   }
 }
