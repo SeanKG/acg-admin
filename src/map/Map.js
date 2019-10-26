@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import * as config from '../config.json';
+import Marker from './Marker';
 import styled from 'styled-components';
 
 const MapWrapper = styled.div`
@@ -22,6 +23,9 @@ class SimpleMap extends Component {
   };
 
   render() {
+    const {markers} = this.props;
+
+    console.log(markers);
     return (
       // Important! Always set the container height explicitly
       <MapWrapper>
@@ -30,10 +34,10 @@ class SimpleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
-            {...ottawa}
-            text="My Marker"
-          />
+            {markers.map(marker => 
+                <Marker key={marker.id}
+                    marker={marker}
+                />)}
         </GoogleMapReact>
       </MapWrapper>
     );

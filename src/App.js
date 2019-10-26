@@ -1,24 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import Map from './map/Map';
+import SideBar from './sidebar/Sidebar';
 import './App.css';
 import styled from 'styled-components';
+
+import markers from './Markers';
 
 const Wrapper = styled.div`
   display: flex;
   height: 100vh;
 `;
 
-const Side = styled.div`
-  flex: 0 0 300px;
-`;
-
 
 function App() {
   return (
     <Wrapper>
-      <Side></Side>
-        <Map />
+      <SideBar markers={markers}></SideBar>
+        <Map markers={markers}/>
     </Wrapper>
   );
 }
