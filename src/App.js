@@ -4,26 +4,16 @@ import SideBar from './sidebar/Sidebar';
 import './App.css';
 import styled from 'styled-components';
 import Header from './header/Header';
-import { observable, computed } from 'mobx';
-import { observer } from 'mobx-react';
-
-import markers from './Markers';
+import { observer, inject } from 'mobx-react';
 
 const headerHeight = "50px";
 
 const Wrapper = styled.div`
-  display: flex;
-  height: calc(100vh - ${headerHeight});
+display: flex;
+height: calc(100vh - ${headerHeight});
 `;
 
-class TodoList {
-  @observable todos = []
-  @computed get unfinishedTodoCount() {
-      return this.todos.filter(todo => !todo.finished).length
-  }
-}
-
-@observer
+@inject('store') @observer
 class App extends Component {
 
   constructor(){
@@ -31,11 +21,13 @@ class App extends Component {
   }
 
   render(){
+    const { store } = this.props;
+
     return (<>
       <Header height={headerHeight}></Header>
       <Wrapper>
-        <SideBar markers={markers}></SideBar>
-        <Map markers={markers}/>
+        <SideBar markers={store.markers}></SideBar>
+        <Map markers={store.markers}/>
       </Wrapper>
     </>);
   }

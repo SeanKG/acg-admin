@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Item from './Item';
+import { observer, inject } from 'mobx-react';
 
 const Side = styled.div`
   flex: 0 0 300px;
@@ -10,13 +11,15 @@ const Side = styled.div`
   z-index: 8;
 `;
 
+
+@inject('store') @observer
 class Sidebar extends Component {
 
     render(){
         const {markers} = this.props;
         
         return (
-            <Side>
+            <Side onClick={this.click}>
                 {markers.map(marker =>
                     <Item key={marker.id} {...marker} />
                 )}
