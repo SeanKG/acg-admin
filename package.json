@@ -133,8 +133,13 @@
     ]
   },
   "babel": {
+    "plugins": [
+      ["@babel/plugin-proposal-decorators", {"decoratorsBeforeExport": true}]
+    ],
     "presets": [
       "react-app"
     ]
+  },  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.6.0"
   }
 }
