@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {GiPoliceOfficerHead} from 'react-icons/gi';
 
-const MarkerWrapper = styled.div`
+const MarkerWrapper = styled(GiPoliceOfficerHead)`
     display: inline-block;
-    background: #fff;
-    padding: 5px;
+    size: 26;
+    color: red;
+    cursor: pointer;
 `;
 
 class Marker extends Component {
@@ -12,9 +14,7 @@ class Marker extends Component {
   render() {
     const {marker} = this.props;
     return (
-      <MarkerWrapper>
-          {marker.id}
-      </MarkerWrapper>
+      <MarkerWrapper size={30} color={marker.status} />
     );
   }
 }

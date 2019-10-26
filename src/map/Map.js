@@ -31,11 +31,11 @@ class SimpleMap extends Component {
         <GoogleMapReact
           bootstrapURLKeys={{ key: config.mapsKey }}
           defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
+          defaultZoom={this.props.zoom}>
             {markers.map(marker => 
                 <Marker key={marker.id}
                     marker={marker}
+                    {...marker}
                 />)}
         </GoogleMapReact>
       </MapWrapper>
