@@ -5,11 +5,9 @@ import Marker from './Marker';
 import styled from 'styled-components';
 
 const MapWrapper = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100%;
 `;
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const ottawa = {
     lat: 45.4215,
