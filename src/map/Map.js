@@ -25,7 +25,6 @@ class SimpleMap extends Component {
   render() {
     const {markers} = this.props;
 
-    console.log(markers);
     return (
       // Important! Always set the container height explicitly
       <MapWrapper>

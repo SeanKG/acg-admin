@@ -11,8 +11,6 @@ class Marker extends Component {
 
   render() {
     const {marker} = this.props;
-
-    console.log(marker);
     return (
       <MarkerWrapper>
           {marker.id}

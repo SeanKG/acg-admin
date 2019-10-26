@@ -9,8 +9,6 @@ class Sidebar extends Component {
 
     render(){
         const {markers} = this.props;
-
-        console.log(markers);
         
         return (
           <Side>
