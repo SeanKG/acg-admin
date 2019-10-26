@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {GiPoliceOfficerHead} from 'react-icons/gi';
+import { observer, inject } from 'mobx-react';
+
 
 const MarkerWrapper = styled(GiPoliceOfficerHead)`
     display: inline-block;
@@ -9,12 +11,31 @@ const MarkerWrapper = styled(GiPoliceOfficerHead)`
     cursor: pointer;
 `;
 
+@inject('store') @observer
 class Marker extends Component {
 
+  onMouseEnter = () =>{
+    const {store, id} = this.props;
+    store.hover = id;
+  }
+
+  onMouseLeave = () =>{
+    const {store} = this.props;
+    store.hover = null;
+  }
+
+  onClick = () =>{
+    const {store, id} = this.props;
+    store.selected = id;
+  }
+
   render() {
-    const {marker} = this.props;
+    const {marker, store} = this.props;
+
+    const big = store.hover == marker.id || store.selected == marker.id;
     return (
-      <MarkerWrapper size={30} color={marker.status} />
+      <MarkerWrapper size={big ? 60 : 30} color={marker.status} onMouseEnter={this.onMouseEnter}
+      onMouseLeave={this.onMouseLeave} onClick={this.onClick} />
     );
   }
 }
