@@ -4,10 +4,12 @@ import { observable, computed, action, toJS } from 'mobx';
 import markers from './markers.json';
 import zones from './zones.json';
 
+const statuses = ["red", "orange", "green", "orange", "green", "orange", "green", "orange", "green", "green", "green", "green", "green", "green", "green", "green"];
+
 const cleant = markers.map( m => ({
     ...m,
     id: m.name,
-    status: ["red", "orange", "green"][Math.floor(Math.random() * Math.floor(3))],
+    status: statuses[Math.floor(Math.random() * Math.floor(statuses.length))],
     user: {
         id: m.lat,
         phone: m.lng
