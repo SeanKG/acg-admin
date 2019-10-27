@@ -4,7 +4,7 @@ import Item from './Item';
 import { observer, inject } from 'mobx-react';
 
 const Side = styled.div`
-  flex: 0 0 300px;
+  flex: 0 0 350px;
   padding-top: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;

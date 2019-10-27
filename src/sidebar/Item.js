@@ -37,7 +37,7 @@ class Item extends Component {
     }
 
     render() {
-        const {id, status, user, store } = this.props;
+        const {id, name, status, user, store } = this.props;
         const selected = store.hover == id || store.selected == id;
 
         return (
@@ -48,8 +48,9 @@ class Item extends Component {
                 onClick={this.onClick}>
                 <Icon size={30} color={status} />
                 <Content>
-                    <div>User ID: {user.id}</div>
-                    <div>Phone Number: {user.phone}</div>
+                    {name}
+                    {/* <div>User ID: {user.id}</div>
+                    <div>Phone Number: {user.phone}</div> */}
                 </Content>
             </ItemWrapper>
         );
