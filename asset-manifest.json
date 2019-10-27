@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/SeanKG/acg-admin/static/css/main.b100e6da.chunk.css",
+    "main.js": "/SeanKG/acg-admin/static/js/main.c54b97d8.chunk.js",
+    "main.js.map": "/SeanKG/acg-admin/static/js/main.c54b97d8.chunk.js.map",
+    "runtime-main.js": "/SeanKG/acg-admin/static/js/runtime-main.ca1ba733.js",
+    "runtime-main.js.map": "/SeanKG/acg-admin/static/js/runtime-main.ca1ba733.js.map",
+    "static/js/2.24f215d9.chunk.js": "/SeanKG/acg-admin/static/js/2.24f215d9.chunk.js",
+    "static/js/2.24f215d9.chunk.js.map": "/SeanKG/acg-admin/static/js/2.24f215d9.chunk.js.map",
+    "index.html": "/SeanKG/acg-admin/index.html",
+    "precache-manifest.a22c156a1822233f032706673878a8c5.js": "/SeanKG/acg-admin/precache-manifest.a22c156a1822233f032706673878a8c5.js",
+    "service-worker.js": "/SeanKG/acg-admin/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/SeanKG/acg-admin/static/css/main.b100e6da.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ca1ba733.js",
+    "static/js/2.24f215d9.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.c54b97d8.chunk.js"
+  ]
+}
