@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { observable, computed } from 'mobx';
 // import markers from './Markers';
 
 import markers from './markers.json';
@@ -20,6 +20,16 @@ class Store {
   @observable markers = cleant;
   @observable selected = null;
   @observable hover = null;
+
+  @computed get red(){
+      return this.markers.filter(m => m.status == "red").length;
+  }
+  @computed get orange(){
+      return this.markers.filter(m => m.status == "orange").length;
+  }
+  @computed get green(){
+      return this.markers.filter(m => m.status == "green").length;
+  }
 }
 
 export default Store;

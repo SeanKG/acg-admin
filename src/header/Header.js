@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {GiPoliceOfficerHead} from 'react-icons/gi';
+import { observer, inject } from 'mobx-react';
 
 const HeaderWrapper = styled.div`
     height: ${props => props.height};
@@ -27,18 +28,21 @@ const Count = styled.div`
     align-self: center;
 `;
 
+@inject('store') @observer
 class Header extends Component {
 
     render(){
         const {height} = this.props;
+        const { store: { red, orange, green } } = this.props;
+
         return (
             <HeaderWrapper height={height}>
                 <Logo>LOGO HERE</Logo>
                 <Right>
                     <Count>Total: 100</Count>
-                    <Count><GiPoliceOfficerHead color="green" /> 50</Count>
-                    <Count><GiPoliceOfficerHead color="orange" /> 25</Count>
-                    <Count><GiPoliceOfficerHead color="red" /> 25</Count>
+                    <Count><GiPoliceOfficerHead color="green" /> {green}</Count>
+                    <Count><GiPoliceOfficerHead color="orange" /> {orange}</Count>
+                    <Count><GiPoliceOfficerHead color="red" /> {red}</Count>
                 </Right>
             </HeaderWrapper>
       );
