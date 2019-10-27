@@ -14,9 +14,9 @@ const HeaderWrapper = styled.div`
     border-bottom: 1px solid #eee;
 `;
 
-const Logo = styled.h1`
-    font-size: 26px;
-    margin: 10px;
+const Logo = styled.img`
+    height: ${props => props.height};
+    width: 150px;
 `;
 
 const Right = styled.div`
@@ -37,7 +37,7 @@ class Header extends Component {
 
         return (
             <HeaderWrapper height={height}>
-                <Logo>LOGO HERE</Logo>
+                <Logo height={height} src={process.env.PUBLIC_URL + "osc-logo.png"}/>
                 <Right>
                     <Count>Total: 100</Count>
                     <Count><GiPoliceOfficerHead color="green" /> {green}</Count>
