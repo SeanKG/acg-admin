@@ -9,6 +9,7 @@ console.log(markers);
 const cleant = markers.map( m => ({
     ...m,
     id: m.name,
+    status: "red",
     user: {
         id: m.lat,
         phone: m.lng
