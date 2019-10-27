@@ -9,8 +9,8 @@ import { observer, inject } from 'mobx-react';
 const headerHeight = "50px";
 
 const Wrapper = styled.div`
-display: flex;
-height: calc(100vh - ${headerHeight});
+  display: flex;
+  height: calc(100vh - ${headerHeight});
 `;
 
 @inject('store') @observer
