@@ -27,7 +27,7 @@ class App extends Component {
       <Header height={headerHeight}></Header>
       <Wrapper>
         <SideBar markers={store.markers}></SideBar>
-        <Map markers={store.markers}/>
+        <Map markers={store.markers} zones={store.zones}/>
       </Wrapper>
     </>);
   }

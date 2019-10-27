@@ -2,6 +2,7 @@ import { observable, computed } from 'mobx';
 // import markers from './Markers';
 
 import markers from './markers.json';
+import zones from './zones.json';
 
 console.log(markers);
 
@@ -16,8 +17,16 @@ const cleant = markers.map( m => ({
     }
 }));
 
+
+const colors = ['blue', 'yellow', 'green', 'orange', 'purple'];
+const cleantZones = zones.map( (zone, i) => ({
+    ...zone,
+    color: colors[i]
+}));
+
 class Store {
   @observable markers = cleant;
+  @observable zones = cleantZones;
   @observable selected = null;
   @observable hover = null;
 
