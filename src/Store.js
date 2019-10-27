@@ -3,9 +3,6 @@ import { observable, computed } from 'mobx';
 
 import markers from './markers.json';
 
-console.log(markers);
-
-
 const cleant = markers.map( m => ({
     ...m,
     id: m.name,
@@ -15,6 +12,7 @@ const cleant = markers.map( m => ({
         phone: m.lng
     }
 }));
+
 
 class Store {
   @observable markers = cleant;
