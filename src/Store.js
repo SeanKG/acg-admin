@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx';
+import { observable, computed, action, toJS } from 'mobx';
 // import markers from './Markers';
 
 import markers from './markers.json';
@@ -22,20 +22,40 @@ const cleantZones = zones.map( (zone, i) => ({
 }));
 
 class Store {
-  @observable markers = cleant;
-  @observable zones = cleantZones;
-  @observable selected = null;
-  @observable hover = null;
 
-  @computed get red(){
-      return this.markers.filter(m => m.status == "red").length;
-  }
-  @computed get orange(){
-      return this.markers.filter(m => m.status == "orange").length;
-  }
-  @computed get green(){
-      return this.markers.filter(m => m.status == "green").length;
-  }
+    @observable show = observable.map({
+        red: true,
+        green: true,
+        orange: true
+    });
+
+    @action
+    toggle(color){
+        this.show.set(color, !this.show.get(color));
+    }
+
+    @observable cleant = cleant;
+
+    @computed get markers(){
+        console.log(this.show);
+
+        const filters = Object.keys(toJS(this.show)).filter(k => this.show.get(k));
+        return this.cleant.filter(m => filters.includes(m.status));
+    }
+
+    @observable zones = cleantZones;
+    @observable selected = null;
+    @observable hover = null;
+
+    @computed get red(){
+        return this.cleant.filter(m => m.status == "red").length;
+    }
+    @computed get orange(){
+        return this.cleant.filter(m => m.status == "orange").length;
+    }
+    @computed get green(){
+        return this.cleant.filter(m => m.status == "green").length;
+    }
 }
 
 export default Store;

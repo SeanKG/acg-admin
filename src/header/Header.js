@@ -26,23 +26,25 @@ const Right = styled.div`
 const Count = styled.div`
     padding: 10px;
     align-self: center;
+    cursor: pointer;
 `;
 
 @inject('store') @observer
 class Header extends Component {
 
+
     render(){
         const {height} = this.props;
-        const { store: { red, orange, green } } = this.props;
+        const { store, store: { red, orange, green } } = this.props;
 
         return (
             <HeaderWrapper height={height}>
                 <Logo height={height} src={process.env.PUBLIC_URL + "osc-logo.png"}/>
                 <Right>
-                    <Count>Total: 100</Count>
-                    <Count><GiPoliceOfficerHead color="green" /> {green}</Count>
-                    <Count><GiPoliceOfficerHead color="orange" /> {orange}</Count>
-                    <Count><GiPoliceOfficerHead color="red" /> {red}</Count>
+                    <Count>Total: {green + red + orange}</Count>
+                    <Count onClick={() => store.toggle("green")}><GiPoliceOfficerHead color="green" /> {green}</Count>
+                    <Count onClick={() => store.toggle("orange")}><GiPoliceOfficerHead color="orange" /> {orange}</Count>
+                    <Count onClick={() => store.toggle("red")}><GiPoliceOfficerHead color="red" /> {red}</Count>
                 </Right>
             </HeaderWrapper>
       );
