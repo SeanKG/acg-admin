@@ -21,6 +21,24 @@ const cleantZones = zones.map( (zone, i) => ({
     color: colors[i]
 }));
 
+try{
+    // Create WebSocket connection.
+    // const socket = new WebSocket('ws://localhost:8080');
+    const socket = new WebSocket('ws://615b01ba.ngrok.io/ws/livedata');
+    
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        console.log("ws open!");
+        socket.send('Hello Server!');
+    });
+    
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', JSON.parse(event.data));
+    });
+
+}catch(e){}
+
 class Store {
 
     @observable show = observable.map({
