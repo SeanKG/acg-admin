@@ -9,7 +9,7 @@ console.log(markers);
 const cleant = markers.map( m => ({
     ...m,
     id: m.name,
-    status: "red",
+    status: ["red", "orange", "green"][Math.floor(Math.random() * Math.floor(3))],
     user: {
         id: m.lat,
         phone: m.lng

@@ -34,7 +34,7 @@ class Marker extends Component {
 
     const big = store.hover == marker.id || store.selected == marker.id;
     return (
-      <MarkerWrapper size={big ? 60 : 30} color={marker.status} onMouseEnter={this.onMouseEnter}
+      <MarkerWrapper size={big ? 60 : 10} color={marker.status} onMouseEnter={this.onMouseEnter}
       onMouseLeave={this.onMouseLeave} onClick={this.onClick} />
     );
   }
